@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<M1Assignment1.Models.Instructor>
+@{
+    ViewData["Title"] = "Instructors Info";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <h2>Instructors Info</h2>
+    <table>
+        <tr>
+            @* //InstructorId, First Name, Last Name,
+            //Email address, and the Course that they teach *@
+            <td>Instructor Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email address</td>
+            <td>Course</td>
+        </tr>
+        @foreach(var Instr in Model)
+        { 
+        <tr>
+            
+            <td>@Instr.InstructorId </td>
+            <td>@Instr.FirstName</td>
+            <td>@Instr.LastName</td>
+            <td>@Instr.EmailAddress</td>
+            <td>@Instr.Course</td>
+        </tr>
+        }
+    </table>
+</body>
+</html>

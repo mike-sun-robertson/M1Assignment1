@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<M1Assignment1.Models.Course>
+@{
+    ViewData["Title"] = "Courses Info";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @section scripts
+    {
+        <script> 
+            function Details(CourseName) {
+                $.get('@Url.Action("GetStudentsbyCourseview","Home")', { CourseName: CourseName },
+                    function (data) {
+                        $('.modal-body').html(data);
+                    }
+                );
+                $("#myModal").modal("show");
+            }
+        </script>
+    }
+
+</head>
+<body>
+    <h2>Courses Info</h2>
+    <table>
+        <tr>
+            @* table of cause *@
+            <td>Course Id</td>
+            <td>Course Number</td>
+            <td>Course Name</td>
+            <td>Description</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+        
+            <tr>
+
+                <td>@item.CourseId </td>
+                <td>@item.CourseNumber</td>
+                <td><a id="Coursename" href="javascript:Details('@item.CourseName')" >@item.CourseName</a></td>
+                <td>@item.Description</td>
+            </tr>
+        
+        }
+</table>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Stundents List in Course</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
