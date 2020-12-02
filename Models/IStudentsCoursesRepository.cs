@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace M1Assignment1.Models
 {
-    interface IStudentsCoursesRepository
+    public interface IStudentsCoursesRepository
     {
         IEnumerable<StudentCourse> GetStudent(int courseID);
         

@@ -3,7 +3,7 @@
 *@
 @model IEnumerable<M1Assignment1.Models.Student>
 @{
-    ViewData["Title"] = Model.FirstOrDefault().Course;
+    ViewData["Title"] =ViewData["PageTitle"];
 }
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <h2>Students list in @Model.FirstOrDefault().Course Class</h2>
+    <h2>Students list in @ViewData["PageTitle"] Class</h2>
     <table>
         <tr>
             @* //StudentId, First Name, Last Name, Email address, and Phone number. *@
@@ -23,14 +23,14 @@
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
+    <tr>
 
-                <td>@item.StudentId </td>
-                <td>@item.FirstName</td>
-                <td>@item.LastName</td>
-                <td>@item.EmailAddress</td>
-                <td>@item.PhoneNumber</td>
-            </tr>
+        <td>@item.StudentId </td>
+        <td>@item.FirstName</td>
+        <td>@item.LastName</td>
+        <td>@item.EmailAddress</td>
+        <td>@item.PhoneNumber</td>
+    </tr>
         }
     </table>
 </body>

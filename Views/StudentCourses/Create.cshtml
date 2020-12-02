@@ -1,0 +1,63 @@
+﻿@model M1Assignment1.Models.StudentCourse
+
+@{
+    ViewData["Title"] = "Create";
+    IEnumerable<Course> courseList = ViewData["CourseList"] as IEnumerable<Course>;
+}
+
+<h1>Create</h1>
+
+<h4>StudentCourse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <input asp-for="StudentId" class="form-control" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseId" class="control-label"></label>
+                <input asp-for="CourseId" class="form-control" />
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h2>Courses Info</h2>
+        <table>
+            <tr>
+                @* table of cause *@
+                <td>Course Id</td>
+                <td>Course Number</td>
+                <td>Course Name</td>
+                <td>Description</td>
+            </tr>
+            @foreach (var item in courseList)
+            {
+
+                <tr>
+
+                    <td>@item.CourseId </td>
+                    <td>@item.CourseNumber </td>
+                    <td>@item.CourseName </td>
+                    <td>@item.Description</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

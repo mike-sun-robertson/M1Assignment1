@@ -45,6 +45,21 @@ namespace M1Assignment1.Models
         public Student GetStudent(int id)
         {
             return _context.Students.Find(id);
+            
+        }
+        
+        public IEnumerable<Student> GetStudent(IEnumerable<StudentCourse> sinCIds)
+        {
+            //FROM B WHERE name IN (select name from A where id = xxxx)
+            //_studentsRepository.Where(a => a.CourseId == courseID);
+            //var itemIds = EF.Item.Where(x => x.ItemName == "沙发").Select(x=>x.ID);
+            //var suplist = EF.Sup.Where(x => itemIds.Contains(x.supID)).Select(x => x.supName);
+            //return _context.Students.Where(x => sinCIds.Contains(x.StudentId));
+            //throw new NotImplementedException();
+            return from stu in _context.Students
+                   join sinC in sinCIds
+                   on stu.StudentId equals sinC.StudentId
+                   select stu;
         }
 
         public Student Update(Student updateStudent)
@@ -55,5 +70,7 @@ namespace M1Assignment1.Models
             
             return updateStudent;
         }
+
+        
     }
 }

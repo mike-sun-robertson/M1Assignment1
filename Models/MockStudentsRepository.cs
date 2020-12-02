@@ -63,6 +63,11 @@ namespace M1Assignment1.Models
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Student> GetStudent(IEnumerable<StudentCourse> sinCIds)
+        {
+            throw new NotImplementedException();
+        }
+
         public Student Update(Student updateStudent)
         {
             Student student = _students.FirstOrDefault(s => s.StudentId == updateStudent.StudentId);

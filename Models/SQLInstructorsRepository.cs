@@ -11,7 +11,7 @@ namespace M1Assignment1.Models
 
         public SQLInstructorsRepository(LocalDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
         public Instructor Add(Instructor instructor)
         {

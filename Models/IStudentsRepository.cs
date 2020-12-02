@@ -9,7 +9,9 @@ namespace M1Assignment1.Models
     {
         IEnumerable<Student> GetStudent(string Course);
         Student GetStudent(int id);
-        IEnumerable<Student> AllStudent();
+
+        IEnumerable<Student> GetStudent(IEnumerable<StudentCourse> sinCIds);
+         IEnumerable<Student> AllStudent();
         Student Add(Student student);
         Student Update(Student updateStudent);
         Student Delete(int id);

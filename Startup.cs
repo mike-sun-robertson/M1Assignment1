@@ -26,9 +26,8 @@ namespace M1Assignment1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LocalDbContext>(
-                options=>options.UseSqlServer(Configuration.GetConnectionString("localDbStr"))
-
-                );
+                options=>options.UseSqlServer(Configuration.GetConnectionString("localDbStr")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
             services.AddMvc();
             //services.AddSingleton<IInstructorsRepository, MockInstructorsRepository>();

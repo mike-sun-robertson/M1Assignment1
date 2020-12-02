@@ -11,8 +11,8 @@
     @section scripts
     {
         <script> 
-            function Details(CourseName) {
-                $.get('@Url.Action("GetStudentsbyCourseview","Home")', { CourseName: CourseName },
+            function Details(CourseId) {
+                $.get('@Url.Action("GetStudentsbyCourseview","Home")', { CourseId: CourseId },
                     function (data) {
                         $('.modal-body').html(data);
                     }
@@ -40,7 +40,7 @@
 
                 <td>@item.CourseId </td>
                 <td>@item.CourseNumber</td>
-                <td><a id="Coursename" href="javascript:Details('@item.CourseName')" >@item.CourseName</a></td>
+                <td><a id="Coursename" href="javascript:Details('@item.CourseId')" >@item.CourseName</a></td>
                 <td>@item.Description</td>
             </tr>
         
